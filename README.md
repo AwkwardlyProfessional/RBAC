@@ -23,7 +23,7 @@ This is a simple Flask web application that implements **Role-Based Access Contr
 ### 1. Clone this repository:
 
 ```bash
-git clone https://github.com/AwkwardlyProfessional/flask-rbac-app.git
+git clone https://github.com/AwkwardlyProfessional/project.git
 cd flask-rbac-app
 ```
 
