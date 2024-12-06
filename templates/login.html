@@ -16,9 +16,9 @@
         <!-- Display Flash Messages -->
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
-                <ul class="alert">
+                <ul class="flash-messages">
                     {% for category, message in messages %}
-                        <li class="{{ category }}">{{ message }}</li>
+                        <li class="flash-message {{ category }}">{{ message }}</li>
                     {% endfor %}
                 </ul>
             {% endif %}
@@ -26,7 +26,7 @@
 
         <!-- Login Form -->
         <form method="POST">
-            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="email_or_username" placeholder="Username or Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>
