@@ -1,61 +1,94 @@
-<!-- moderator_dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moderator Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/moderator.css') }}">
 </head>
 <body>
+    <!-- Logout Button -->
+    <form action="{{ url_for('logout') }}" method="POST">
+        <button type="submit" class="logout-button">Logout</button>
+    </form>
+
+    <!-- Main Container -->
     <div class="container">
         <h2>Moderator Dashboard</h2>
 
         <!-- Display Flash Messages -->
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
-                <ul class="alert">
+                <ul class="flash-message">
                     {% for category, message in messages %}
-                        <li class="{{ category }}">{{ message }}</li>
+                        <li class="alert {{ category }}">{{ message }}</li>
                     {% endfor %}
                 </ul>
             {% endif %}
         {% endwith %}
 
-        <!-- Display Blog Posts -->
-        <h3>Unapproved Blog Posts</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Date Posted</th>
-                    <th>Review</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for blog in blogs %}
+        <!-- Unapproved Blog Posts Container -->
+        <div class="blog-container unapproved">
+            <h3>Unapproved Blog Posts</h3>
+            <table>
+                <thead>
                     <tr>
-                        <td>{{ blog.title }}</td>
-                        <td>{{ blog.author.username }}</td>
-                        <td>{{ blog.date_posted.strftime('%Y-%m-%d %H:%M') }}</td>
-                        <td>
-                            <form method="POST">
-                                <textarea name="review" rows="3" placeholder="Write a review"></textarea>
-                            </form>
-                        </td>
-                        <td>
-                            <form method="POST">
-                                <input type="hidden" name="blog_id" value="{{ blog.id }}">
-                                <button type="submit" name="action" value="approve">Approve</button>
-                                <button type="submit" name="action" value="reject">Reject</button>
-                            </form>
-                        </td>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Date Posted</th>
+                        <th>Review</th>
+                        <th>Actions</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for blog in unapproved_blogs %}
+                        <tr>
+                            <td>{{ blog.title }}</td>
+                            <td>{{ blog.author.username }}</td>
+                            <td>{{ blog.date_posted.strftime('%Y-%m-%d %H:%M') }}</td>
+                            <td>
+                                <form method="POST">
+                                    <textarea name="review" rows="3" placeholder="Write a review"></textarea>
+                                </form>
+                            </td>
+                            <td>
+                                <form method="POST">
+                                    <input type="hidden" name="blog_id" value="{{ blog.id }}">
+                                    <!-- Approve and Reject Buttons with styles -->
+                                    <button type="submit" name="action" value="approve" class="approve-button">Approve</button>
+                                    <button type="submit" name="action" value="reject" class="reject-button">Reject</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Approved Blog Posts Container -->
+        <div class="blog-container approved">
+            <h3>Approved Blog Posts</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Date Posted</th>
+                        <th>Review</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for blog in approved_blogs %}
+                        <tr>
+                            <td>{{ blog.title }}</td>
+                            <td>{{ blog.author.username }}</td>
+                            <td>{{ blog.date_posted.strftime('%Y-%m-%d %H:%M') }}</td>
+                            <td>{{ blog.review or "No review" }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>
