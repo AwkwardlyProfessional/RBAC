@@ -1,0 +1,167 @@
+/* General styles for the Admin Dashboard */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("../image.png"); /* Adjust the path if necessary */
+    background-size: cover;  /* Ensure the image covers the entire background */
+    background-repeat: no-repeat;  /* Prevent repetition of the background */
+    background-attachment: fixed;  /* Make the background fixed while scrolling */
+    background-position: center;  /* Center the image */
+    color: #333;  /* Dark text color for better readability */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 100vh; /* Full viewport height */
+    flex-direction: column;
+}
+
+/* Main container for the admin dashboard */
+.container {
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.7);  /* Semi-transparent white */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px;
+    overflow: hidden;  /* Prevent overflow outside the container */
+}
+
+/* Header styling */
+h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Flash message styling */
+.flash-messages {
+    margin-bottom: 20px;
+}
+
+.flash-message {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.flash-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash-message.danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.flash-message.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+.flash-message.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+/* Table container to make sure the table fits correctly */
+.table-container {
+    width: 200%;
+    overflow-x: auto;  /* Enable horizontal scrolling if needed */
+    margin-top: 20px;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    table-layout: fixed; /* Ensures that table columns take equal width */
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word; /* Prevents text overflow in cells */
+}
+
+th {
+    background-color: #f1f1f1;
+    text-align: center; /* Centers the text in the header */
+}
+
+td {
+    text-align: center; /* Centers the content of each cell */
+}
+
+td select {
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #28a745; /* Blue color for buttons */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #28a745; /* Darker blue on hover */
+}
+
+button[type="submit"] {
+    margin: 5px;
+}
+
+/* Styling for the logout button */
+.logout-button {
+    padding: 10px 20px;
+    background-color: #d9534f; /* Bootstrap Red color */
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    position: absolute;  /* Position relative to the container */
+    top: 20px; /* Distance from the top of the container */
+    right: 20px; /* Distance from the right of the container */
+}
+
+.logout-button:hover {
+    background-color: #c9302c; /* Darker red on hover */
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    td select {
+        width: 100%; /* Make select box full-width on smaller screens */
+    }
+}

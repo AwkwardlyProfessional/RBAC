@@ -1,0 +1,173 @@
+/* General body and layout styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("../image.png"); /* Adjust the path if necessary */
+    background-size: cover;  /* Ensure the image covers the entire background */
+    background-repeat: no-repeat;  /* Prevent repetition of the background */
+    background-attachment: fixed;  /* Make the background fixed while scrolling */
+    background-position: center;  /* Center the image */
+    color: #333;  /* Dark text color for better readability */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 100vh; /* Full viewport height */
+    flex-direction: column;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Container for the main content */
+.container {
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.7);  /* Semi-transparent white */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px;
+}
+
+/* Logout button */
+.logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #d9534f; /* Bootstrap Red color */
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #c9302c; /* Darker red on hover */
+}
+
+/* Flash messages */
+.flash-message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    list-style-type: none;
+}
+
+.flash-message.success {
+    background-color: #D4EDDA;  /* Light green background */
+    color: #155724;  /* Dark green text */
+    border: 1px solid #C3E6CB;  /* Slightly darker border */
+}
+
+.flash-message.danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.flash-message.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+.flash-message.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+/* Blog Container */
+.blog-container {
+    margin-top: 20px;
+}
+
+.blog-container h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f1f1f1;
+}
+
+/* Textarea and buttons inside the table */
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #5bc0de; /* Bootstrap info color */
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #31b0d5; /* Darker blue on hover */
+}
+
+/* Styling for forms and inputs within tables */
+input[type="hidden"] {
+    display: none;
+}
+
+/* Specific styling for Approve and Reject buttons */
+.approve-button {
+    background-color: #28a745; /* Green background */
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.approve-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.reject-button {
+    background-color: #dc3545; /* Red background */
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reject-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
