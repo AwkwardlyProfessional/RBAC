@@ -1,29 +1,33 @@
-<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ current_user.username }}'s Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}">
 </head>
+
 <body>
+    <!-- Main content container -->
     <div class="container">
-        <h2>{{ current_user.username }}'s Dashboard</h2>
+        <!-- User's Dashboard Header -->
 
-        <!-- Display Flash Messages -->
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <ul class="alert">
-                    {% for category, message in messages %}
-                        <li class="{{ category }}">{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
 
-        <!-- Change Username and Password Form -->
+        <!-- Dashboard Form (Change Username, Password, and Create Blog Post) -->
         <form method="POST">
+            <h2>{{ current_user.username }}'s Dashboard</h2>
+
+            <!-- Display Flash Messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <ul class="alert">
+                {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
             <h3>Change Username</h3>
             <input type="text" name="username" placeholder="New Username" value="{{ current_user.username }}" required>
 
@@ -37,6 +41,11 @@
 
             <button type="submit">Update</button>
         </form>
-    </div>
+        <form action="{{ url_for('logout') }}" method="POST">
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
+        
+    </div> <!-- End of container -->
 </body>
+
 </html>
